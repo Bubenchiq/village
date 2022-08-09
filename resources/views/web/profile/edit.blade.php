@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-header">Your profile</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('web.profile.update', $user->id) }}">
+                    <form method="POST" action="{{ route('web.profile.update') }}">
                             @csrf
                             @method('PUT')
                             <div class="row align-items-start">

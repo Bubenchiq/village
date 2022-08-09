@@ -5,69 +5,90 @@
                 <div class="card-header">Your profile</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('web.profile.update', $user->id) }}">
-                        <table class="table table-borderless">
                             @csrf
                             @method('PUT')
-                            <tr>
-                                <th scope="row">Name</th>
-                                <td class="px-3">{{ $user->name }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Nickname</th>
-                                <td>
+                            <div class="row align-items-start">
+                                <div class="col-2 py-2">
+                                    Name
+                                </div>
+                                <div class="col-4 mx-2 py-2">
+                                    {{ $user->name }}
+                                </div>
+                            </div>
+                            <div class="row align-items-start">
+                                <div class="col-2 py-2">
+                                    Nickname
+                                </div>
+                                <div class="col-4 py-2">
                                     <input id="nickname" type="text" class="form-control @error('nickname') is-invalid @enderror" name="nickname" value="{{ old('nickname', $user->nickname) }}" required autocomplete="nickname">
 
-                                        @error('nickname')
-                                        <span class="invalid-feedback" role="alert">
+                                    @error('nickname')
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                        @enderror
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">level</th>
-                                <td>{{ $user->level }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Credits</th>
-                                <td>{{ $user->credits }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Email</th>
-                                <td>{{ $user->email }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Current password</th>
-                                <td>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row align-items-start">
+                                <div class="col-2 py-2">
+                                    level
+                                </div>
+                                <div class="col-4 py-2 mx-2">
+                                    {{ $user->level }}
+                                </div>
+                            </div>
+                            <div class="row align-items-start">
+                                <div class="col-2 py-2">
+                                    Credits
+                                </div>
+                                <div class="col-4 py-2 mx-2">
+                                    {{ $user->credits }}
+                                </div>
+                            </div>
+                            <div class="row align-items-start">
+                                <div class="col-2 py-2">
+                                    Email
+                                </div>
+                                <div class="col-4 py-2 mx-2">
+                                    {{ $user->email }}
+                                </div>
+                            </div>
+                            <div class="row align-items-start">
+                                <div class="col-2 py-2">
+                                    Current password
+                                </div>
+                                <div class="col-4 py-2">
                                     <input id="current_password" type="password" class="form-control @error('current_password', ) is-invalid @enderror" name="current_password" required autocomplete="current_password">
 
                                     @error('current_password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     @enderror
-                            </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">New password</th>
-                                <td>
+                                </div>
+                            </div>
+                            <div class="row align-items-start">
+                                <div class="col-2 py-2">
+                                    New password
+                                </div>
+                                <div class="col-4 py-2">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                     @enderror
-                                </td>
-                            </tr>
-                            <tr>
-                                    <th scope="row">Confirm password</th>
-                                    <td>
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-                                    </td>
-                            </tr>
-                        </table>
-                        <br>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-danger btn-w-50 pull-right" > Update </button>
-                        </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-start">
+                                <div class="col-2 py-2">
+                                    Confirm password
+                                </div>
+                                <div class="col-4 py-2">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+                                </div>
+                                <div class="col-4 py-2">
+                                    <button class="btn btn-danger btn-w-50 pull-right" > Update </button>
+                                </div>
+                            </div>
                     </form>
                 </div>
             </div>

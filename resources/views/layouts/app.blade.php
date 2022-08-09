@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div class="min-h-screen bg-gray-100">
+<div class="min-h-screen bg-gray-100" id="app">
 <x-nav-layout></x-nav-layout>
         @isset($header)
             <!-- Page Heading -->

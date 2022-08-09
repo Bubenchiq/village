@@ -21,8 +21,7 @@
 </head>
 <body>
 <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation')
-
+<x-nav-layout></x-nav-layout>
         @isset($header)
             <!-- Page Heading -->
                 <header class="bg-white shadow">

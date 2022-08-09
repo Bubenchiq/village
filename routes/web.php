@@ -22,7 +22,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/profile', [UserController::class, 'edit'])->name('web.profile.edit');
-Route::put('/profile', [UserController::class, 'update'])->name('web.profile.update');
-Route::get('/profile/{user}', [UserController::class, 'show'])->name('web.profile.show');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/profile', [UserController::class, 'edit'])->name('web.profile.edit');
+    Route::put('/profile', [UserController::class, 'update'])->name('web.profile.update');
+    Route::get('/profile/{user}', [UserController::class, 'show'])->name('web.profile.show');
+});
 

@@ -11,7 +11,6 @@ use Laratrust\Traits\LaratrustUserTrait;
 
 /**
  * App\Models\User
- *
  * @property int $id
  * @property string $name
  * @property string $nickname

@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container bg-white">
                 <div class="form-check form-check-inline">
-                    <h2>{{ __('About user') }}</h2>
+                    <h2>{{ __('About user') }}</h2
                 </div>
             </div>
         </nav>
@@ -12,7 +12,7 @@
     <div class="container bg-white py-4">
         <div class="d-flex justify-content-between py-2">
                 <div class="form-check form-check-inline">
-                    <h2> More about {{ $user->name}} </h2>
+                    <h2> More about {{ $user->nickname}} </h2>
                 </div>
                 <div class="form-check form-check-inline px-4">
                     <a class="btn btn-outline-primary" href="{{ route('admin.users.index') }}"> Back</a>
@@ -24,6 +24,12 @@
                 <div class="form-group">
                     <strong>Name:</strong>
                     {{ $user->name }}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Nickname:</strong>
+                    {{ $user->nickname }}
                 </div>
             </div>
 

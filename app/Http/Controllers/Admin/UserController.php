@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-class CRUDUserController extends Controller
+class UserController extends Controller
 {
     public function __construct(){
         $this->middleware(['permission:users-read'])->only(['index', 'show']);
@@ -29,14 +29,14 @@ class CRUDUserController extends Controller
 
         $users = User::query()
             ->with('roles')
-            ->when($request->name, fn(Builder $builder) => $builder->where('name', 'like',"%$request->name%"))
-            ->when($request->nickname, fn(Builder $builder) => $builder->where('nickname', 'like',"%$request->nickname%"))
-            ->when($request->userId, fn(Builder $builder) => $builder->where('id', '=', $request->userId))
+            ->when($request->name, fn(Builder $builder) => $builder->where('name', 'like',"%{$request->name}%"))
+            ->when($request->nickname, fn(Builder $builder) => $builder->where('nickname', 'like',"%{$request->nickname}%"))
+            ->when($request->userId, fn(Builder $builder) => $builder->where('id', '=', "{$request->userId}"))
             ->when($request->roleName, fn(Builder $builder) => $builder->whereHas('roles', function(Builder $builder) use ($request) {
-                $builder->where('name', 'like',"%$request->roleName%");
+                $builder->where('name', 'like',"%{$request->roleName}%");
             }))
             ->when($request->roleId, fn(Builder $builder) => $builder->whereHas('roles', function(Builder $builder) use ($request) {
-                $builder->where('id', $request->roleId);
+                $builder->where('id', "{$request->roleId}");
             }))
             ->when($date, fn(Builder $builder) => $builder->where('created_at', '>=', $searchData['from'])->where('created_at', '<=', $searchData['to']))
             ->latest()->paginate(10);
@@ -106,6 +106,7 @@ class CRUDUserController extends Controller
     {
         $user->update([
             'name' => $request->get('name'),
+            'nickname' => $request->get('nickname'),
             'email' => $request->get('email'),
             'password' => bcrypt($request->get('password')),
         ]);

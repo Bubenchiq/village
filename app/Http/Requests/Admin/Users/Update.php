@@ -18,6 +18,7 @@ class Update extends FormRequest
         $availableRoles = Role::query()->where('name', '!=', 'admin')->pluck('name', 'id')->toArray();
         return [
             'name' => ['string', 'max:255'],
+            'nickname' => ['required', 'max:255', 'unique:users,nickname'],
             'email' => ['email', 'max:255'],
             'password' => ['nullable','string', 'max:255'],
             'role' => ['exists:roles,id', Rule::in(array_keys($availableRoles)) ]

@@ -30,11 +30,11 @@
                     <input type="text" name="name" placeholder="User's name" id="name" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="nickname">User's name</label>
+                    <label for="nickname">User's nickname</label>
                     <input type="text" name="nickname" placeholder="User's nickname" id="nickname" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="password">Pass</label>
+                    <label for="password">Password</label>
                     <input type="password" name="password" placeholder="User's name" id="password" class="form-control">
                 </div>
                 <div class="form-group">

@@ -7,7 +7,13 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+            @permission('admin-permissions')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <a class="nav-link" href="{{route('admin.users.index')}}" :active="{{request()->routeIs('admin.users.*')}}">
+                        {{ __('Users') }}
+                    </a>
+                </div>
+            @endpermission
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">

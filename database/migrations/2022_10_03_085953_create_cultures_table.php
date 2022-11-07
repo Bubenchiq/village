@@ -19,8 +19,6 @@ class CreateCulturesTable extends Migration
             $table->float('seed_price');
             $table->float('crop_price');
             $table->integer('grow_duration');
-            $table->timestamp('platted_at');
-            $table->timestamp('growed_at');
         });
     }
 
